@@ -1,15 +1,16 @@
 using Moq;
 using Xunit;
 using FizzBuzz.Domain;
+using FizzBuzz.Exceptions;
 
 namespace FizzBuzz.FizzBuzzTests
 {
     public class FizzBuzzTests
-    {  
-          [Fact]
+    {
+        [Fact]
         public void ReturnsZeroForZero()
         {
-            var fizzBuzz = new FizzBuzzNumber(0);
+            var fizzBuzz = new FizzBuzzNumber("0");
             var result = fizzBuzz.GetValue();
 
             Assert.Equal("0", result);
@@ -18,7 +19,7 @@ namespace FizzBuzz.FizzBuzzTests
         [Fact]
         public void ReturnsOneForOne()
         {
-            var fizzBuzz = new FizzBuzzNumber(1);
+            var fizzBuzz = new FizzBuzzNumber("1");
             var result = fizzBuzz.GetValue();
 
             Assert.Equal("1", result);
@@ -27,7 +28,7 @@ namespace FizzBuzz.FizzBuzzTests
         [Fact]
         public void ReturnsFizzForThree()
         {
-            var fizzBuzz = new FizzBuzzNumber(3);
+            var fizzBuzz = new FizzBuzzNumber("3");
             var result = fizzBuzz.GetValue();
 
             Assert.Equal("Fizz", result);
@@ -36,7 +37,7 @@ namespace FizzBuzz.FizzBuzzTests
         [Fact]
         public void ReturnsBuzzForFive()
         {
-            var fizzBuzz = new FizzBuzzNumber(5);
+            var fizzBuzz = new FizzBuzzNumber("5");
             var result = fizzBuzz.GetValue();
 
             Assert.Equal("Buzz", result);
@@ -45,10 +46,18 @@ namespace FizzBuzz.FizzBuzzTests
         [Fact]
         public void ReturnsFizzBuzzForFifteen()
         {
-            var fizzBuzz = new FizzBuzzNumber(15);
+            var fizzBuzz = new FizzBuzzNumber("15");
             var result = fizzBuzz.GetValue();
 
             Assert.Equal("FizzBuzz", result);
+        }
+
+        [Fact]
+        public void NotANumberExceptionIsThrownForANonNumber()
+        {
+            var fizzBuzz = new FizzBuzzNumber("Jordan");
+
+            Assert.Throws<NotANumberException>( () => fizzBuzz.GetValue());
         }
     }
 }

@@ -7,6 +7,7 @@ using FizzBuzz.Domain;
 using Microsoft.AspNetCore.Cors;
 using FizzBuzz.Models;
 using System.Net;
+using FizzBuzz.Exceptions;
 
 namespace FizzBuzz.Controllers
 {

@@ -1,26 +1,37 @@
 using System;
+using FizzBuzz.Exceptions;
 
 namespace FizzBuzz.Domain
 {
     public class FizzBuzzNumber
     {
-        private Int32 value;
+        private String value;
 
-        public FizzBuzzNumber(Int32 value)
+        public FizzBuzzNumber(String value)
         {
             this.value = value;
         }
-        
+
         public String GetValue()
         {
-            if (value == 0)
+            var number = 0;
+            
+            try
+            {
+                number = Convert.ToInt32(value);
+            }
+            catch
+            {
+                throw new NotANumberException();
+            }
+            if (number == 0)
                 return Convert.ToString(0);
 
-            if (value % 5 == 0 && value % 3 == 0)
+            if (number % 5 == 0 && number % 3 == 0)
                 return "FizzBuzz";
-            if (value % 5 == 0)
+            if (number % 5 == 0)
                 return "Buzz";
-            else if (value % 3 == 0)
+            else if (number % 3 == 0)
                 return "Fizz";
 
             return Convert.ToString(value);

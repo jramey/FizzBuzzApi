@@ -1,6 +1,6 @@
 using System;
 
-namespace FizzBuzz.Controllers
+namespace FizzBuzz.Exceptions
 {
     internal class NotANumberException : Exception
     {

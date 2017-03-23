@@ -20,7 +20,7 @@ namespace FizzBuzz.Controllers
         [Fact]
         public void ControllerReturnsWordValue()
         {
-            var result = controller.GetValue(new FizzBuzzModel() { Value = 1 } ) as JsonResult;
+            var result = controller.GetValue(new FizzBuzzModel() { Value = "1" } ) as OkObjectResult;
             dynamic model = result.Value;
 
             Assert.Equal("1", model.value);

@@ -10,10 +10,12 @@
 
 <body ng-controller="FizzBuzzController as vm" class="ng-cloak">
     <form class="searchform cf">
-        <input type="text" ng-model="vm.number">
-        <button type="submit" ng-click="vm.getValue()">Sumbit</button>
+        <input type="text" id="fizzbuzz-text-box" ng-model="vm.number">
+        <button type="submit" ng-click="vm.getValue()">Submit</button>
     </form>
-    <h1>{{ vm.value }}</h1>
+    <center>
+        <h1 ng-class="{ error: vm.invalidData }">{{ vm.value }}</h1>
+    </center>
 </body>
 <script src="./libs/angular.js"></script>
 <script src="./app.module.js"></script>

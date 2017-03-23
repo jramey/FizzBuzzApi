@@ -1,7 +1,7 @@
 exports.config = {
     framework: 'jasmine',
-    seleniumServerJar: './node_modules/protractor/node_modules//webdriver-manager/selenium/selenium-server-standalone-3.3.1.jar',
-    chromeDriver: './node_modules/protractor/node_modules//webdriver-manager/selenium/chromedriver_2.28',
+    seleniumServerJar: './node_modules/protractor/selenium-server-standalone-3.3.1.jar',
+    chromeDriver: './node_modules/protractor/chromedriver',
     specs: [
         './tests/e2e/*.js'
     ],
@@ -12,7 +12,7 @@ exports.config = {
         browser.ignoreSynchronization = true;
 
     },
-    baseUrl: 'http://localhost:8000/',
+    baseUrl: 'http://localhost:8080/',
 
     capabilities: {
         browserName: 'chrome',
